@@ -6,7 +6,13 @@ The lending design is an early-liquidation, dynamic-interest, no-expiry loan sch
 
 ### Liquidity Synths&#x20;
 
-Liquidity synths allow asset-denominated collateral to be stored in the pool liquidity. The pool liquidity can underwrite the asset-denominated collateral across a range of prices because pool liquidity is less volatile than a non-coupled asset. To mint a synth, users deposit assets into pools and D Tokens are insta-minted to match the deposit, but instead of the user’s liquidity being accounted for in units of D Tokens, their collateral is stored in units of asset deposited. There is a cap of 33% of the depth of the pool (in asset terms) that synths are allowed to be minted up to. When a user withdraws a Synth, the owed asset amount is taken from the pool balance and the paired D Token quantity is burnt.&#x20;
+Liquidity synths allow asset-denominated collateral to be stored in the pool liquidity. The pool liquidity can underwrite the asset-denominated collateral across a range of prices because pool liquidity is less volatile than a non-coupled asset. To mint a synth, users deposit assets into pools and D Units are insta-minted to match the deposit and their collateral is stored in units of asset deposited. There is a cap of 33% of the depth of the pool (in asset terms) that synths are allowed to be minted up to. When a user withdraws a Synth, the owed asset amount is taken from the pool balance and the paired D  quantity is burnt.&#x20;
+
+
+
+
+
+<img src="../.gitbook/assets/file.excalidraw (14).svg" alt="" class="gitbook-drawing">
 
 \
 
@@ -15,28 +21,24 @@ Liquidity synths allow asset-denominated collateral to be stored in the pool liq
 
 Synth Collateral is stored as internal balance, but Synth holders are given units of ownership of the Synth Pool. This allows an interest rate to be applied. Synth holder’s claim on the collateral can be computed by assessing their ownership.&#x20;
 
-\
+All synth holders pay the same interest rate, which simply deletes a small amount of the total stored collateral balance. By slowly deleting the Synth Liability, Pool LPs accrue Pool Ownership, which offsets the Impermanent Loss experienced by presence of the Synths.&#x20;
 
+<img src="../.gitbook/assets/file.excalidraw (15).svg" alt="" class="gitbook-drawing">
 
 ### Synth Leverage
 
-Impermanent Loss/Gain is exacerbated by Synth Leverage. At 33% of the pool, Pool LPs experience 2x the IL if the price is unfavorable to them (the Asset is becoming more valuable than D tokens). If the Asset becomes weaker, Pool LPs experience a 1.5x Impermanent Gain as they accrue extra Asset tokens relative to D Tokens. Thus Pool LPs are inherently short the asset, whilst Synth holders are long the asset.&#x20;
+Impermanent Loss/Gain is exacerbated by Synth Leverage. At 33% of the pool, Pool LPs experience 2x the IL if the price is unfavorable to them (the Asset is becoming more valuable than D). If the Asset becomes weaker, Pool LPs experience a 1.5x Impermanent Gain as they accrue extra Asset relative to D. Thus Pool LPs are inherently short the asset, whilst Synth holders are long the asset.&#x20;
 
-\
-
-
-### Fees and Interest Rate
-
-Pool LPs earn all the fees and an interest rate from Synths. At 33% Synth Loading, Pool LPs are earning 1.5x their normal fee rate. The interest rate is coupled to the utilization of the Pool in Synth - set to a value to target the Synth Cap on a linear curve. This would likely be 0% at 0% Caps, \~5% at Max Caps, and extending to 100% at 100% Caps (the entire pool is underwriting the Synths, experienced after a 9x unfavorable price change).
-
-\
-
+<img src="../.gitbook/assets/file.excalidraw (16).svg" alt="" class="gitbook-drawing">
 
 ### Interest Rate Mechanism
 
-All synth holders pay the same interest rate, which simply deletes a small amount of the total stored collateral balance. By slowly deleting the Synth Liability, Pool LPs accrue Pool Ownership, which offsets the Impermanent Loss experienced by presence of the Synths.&#x20;
+Pool LPs earn all the fees and an interest rate from Synths. At 33% Synth Loading, Pool LPs are earning 1.5x their normal fee rate. The interest rate is coupled to the utilization of the Pool in Synth - set to a value to target the Synth Cap on a linear curve. This would likely be 0% at 0% Caps, \~5% at Max Caps, and extending to 100% at 100% Caps (the entire pool is underwriting the Synths, experienced after a 9x unfavorable price change).
 
-\
+
+
+<img src="broken-reference" alt="" class="gitbook-drawing">
+
 
 
 ### Synths As Lending Collateral
