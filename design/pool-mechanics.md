@@ -10,6 +10,7 @@ Users deposit assets which insta-mint D Liquidity Units at the current pool-pric
 
 ```
 P' = P * A' / (A' + A)
+D' = D * A' / (A' + A)
 ```
 
 ### Removing Liquidity
