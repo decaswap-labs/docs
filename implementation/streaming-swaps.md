@@ -1,29 +1,93 @@
 # Streaming Swaps
 
-Swap Deposit
+## Swap
 
-1. A user deposits in a direction
+### Swap Deposit
+
+```
+mapping(address => mapping(address => uint[])) public swapQueueForPair;
+mapping(address => mapping(address => uint)) public lastStreamedIndexForPair;
+```
+
+```
+swap(address tokenIn, address tokenOut, uint amountIn) public
+```
+
+```
+
+struct Swap {
+        uint swapID;
+        address swapInAsset;
+        uint swapInAmountRemaining;
+        uint streamsRemaining;
+        address swapOutAsset;
+        uint swapOutAmountDone;
+        bool processing;
+        uint priceToStartStreaming;
+        uint lastStreamedBlock;
+    }
+```
+
+1. A user swaps in a direction `(tokenIn(tokenOut))`
 2. Process outgoing streams first, accumulate fees in outgoing asset, then exit gasLimit&#x20;
 3. Check for opposite swaps, if any, match and settle
 4. If no opposite, check last index pending, if valid price, then move to Stream Queue&#x20;
 5. Match, Settle
 6. Transfer out Asset, send fees to System
 
-Order Deposit
+```
+processStream(address tokenIn, address tokenOut, uint gasLimit=100,000)
+=> start at lastStreamedIndexForPair
+=> stream the queue, exit at gasLimit
+=> fees accumulated in outgoing asset for msg.sender swapID
+
+checkSwapQueueForOne(address tokenOut, address tokenIn)
+=> if found, match, settle, pay fees
+
+checkOrderQueueForOne(address tokenOut, address tokenIn)
+=> if found, match, settle, pay fees
+
+processTransferOut(uint swapID)
+=> send out for user
+```
+
+### Order Deposit
 
 1. A user deposits in a direction, with price
 2. If current price valid, then process as per Swap Deposit
 3. If not valid, search pending Swap Queue, in reverse, looking for correct price to insert.&#x20;
 4. Insert and re-order array.&#x20;
 
-Keeper Bot - Swap Queue
+```
+swap(address tokenIn, address tokenOut, uint amountIn, uint priceToStartStreaming) public
+```
+
+```
+checkPrice(uint priceToStartStreaming)
+=> if valid, insert into Swap Queue
+=> processStream()
+
+insertOrder(address tokenIn, address tokenOut, uint priceToStartStreaming)
+=> insert order at correct index
+```
+
+### Swap Cancel
+
+```
+cancel(uint swapID) public
+=> return any assets to sender (could be pending or processing)
+```
+
+### Keeper Bot - Swap Queue
 
 1. Nominates pair, direction, gas limit
 2. Starts at (2) above
 3. Fees are 5BPS on all streams, accumulated in outgoing asset for the bot
 4. Will do Stream Queue first, and also do the Pending Swap Queue.&#x20;
 
-Pool Processing
+## Liquidity
+
+### Pool Processing
 
 1. For Add/Borrow, process Asset -> D stream queue first, charge stream fees in D, swap back to Asset deposit, then exit gas limit
 2. For Deposit/Repay, process Asset -> D stream queue first, keep fees in D, add to swapAmountOut, then exit gas limit
@@ -32,7 +96,7 @@ Pool Processing
 5. Charge interest payments on Synth Collateral
 6. Liquidates any bad debt
 
-Keeper Bot - Pool Queue
+### Keeper Bot - Pool Queue
 
 1. Nominates pool, direction, gas limit
 2. Starts at (2) above

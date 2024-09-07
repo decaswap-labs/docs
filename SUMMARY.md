@@ -5,10 +5,9 @@
 ## Design
 
 * [Overview](design/overview.md)
-* [Pool Mechanics](design/pool-mechanics.md)
+* [Liquidity](design/liquidity.md)
 * [Swaps](design/swaps.md)
 * [Lending](design/lending.md)
-* [System Processing](design/system-processing.md)
 * [Summary](design/summary.md)
 
 ## Implementation
