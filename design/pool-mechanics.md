@@ -14,11 +14,10 @@ P' = P * A' / (A' + A)
 
 ### Removing Liquidity
 
-Users remove liquidity by redeeming their liquidity single-sided out to the asset. The paired D Tokens are simply insta-burnt. Even if D tokens move around the pools, when all LPs leave D Units should be 0.&#x20;
+Users remove liquidity by redeeming their liquidity single-sided out to the asset. The paired D Tokens are simply insta-burnt. Even if D tokens move around the pools, when all LPs leave D Units should be 0.
 
 ```
-P' = P * A' / (A' + A)
+A' = A * P' / P
 ```
 
-\
-\
+<img src="../.gitbook/assets/file.excalidraw (10).svg" alt="" class="gitbook-drawing">
