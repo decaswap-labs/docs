@@ -28,10 +28,6 @@ There is a mechanism to become a “Global LP” which simply involves buying D 
 
 <img src="../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
 
-### DECADAO (System Equity)
-
-DECADAO earns 10% of System Income forever, claimed by members of the DAO. Anyone can buy DECA and lock to earn. DECA tokens can be held independently, and is the equity asset of the network. DECA has its own liquidity on the network. Users will buy DECA tokens to access future cash flows of the system. The DAO can propose any system parameter and action it after some time.&#x20;
-
 ### DECA Token
 
 The DECA token is fixed-supply and available for buy-sell in the market as an independent pool. DECA can attract a speculative premium and is a proxy for the yield of the system. On launch, the owner will buy 30% of the supply of DECA and deposit into the DAO. The owner will also buy 30% of the DECA pool and deposit into the DECAMint. The final 40% of the supply will stay in the pool for the market to participate in.
@@ -39,6 +35,10 @@ The DECA token is fixed-supply and available for buy-sell in the market as an in
 
 
 <img src="../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
+
+### DECADAO (System Equity)
+
+DECADAO earns 10% of System Income forever, claimed by members of the DAO. Anyone can buy DECA and lock to earn. DECA tokens can be held independently, and is the equity asset of the network. DECA has its own liquidity on the network. Users will buy DECA tokens to access future cash flows of the system. The DAO can propose any system parameter and action it after some time.&#x20;
 
 ### DECAMINT (RESERVE)
 
