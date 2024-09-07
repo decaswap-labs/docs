@@ -37,16 +37,22 @@ Pool LPs earn all the fees and an interest rate from Synths. At 33% Synth Loadin
 
 
 
-<img src="broken-reference" alt="" class="gitbook-drawing">
+
+
+<img src="../.gitbook/assets/file.excalidraw (17).svg" alt="" class="gitbook-drawing">
 
 
 
 ### Synths As Lending Collateral
 
-Synths are only minted to store lending collateral. The loan is created by assessing 50% of the value in D Balance of the collateral, minting it in more D tokens, and streaming on to the Debt Asset to the user. For example, if 10 WBTC are deposited for lending collateral, worth $600k, then $300k in D is minted and streamed out. A net gain of $300k is stored by the system.&#x20;
+Synths are only minted to store lending collateral. The loan is created by assessing 50% of the value in D Balance of the collateral, minting it in more D, and streaming on to the Debt Asset to the user. For example, if 10 WBTC are deposited for lending collateral, worth $600k, then $300k in D is minted and streamed out. A net gain of $300k is stored by the system.&#x20;
+
+
 
 \
 
+
+<img src="../.gitbook/assets/file.excalidraw (18).svg" alt="" class="gitbook-drawing">
 
 ### Liquidation
 
@@ -55,12 +61,15 @@ If a collateral position drops below 101% its debt value, then anyone can liquid
 \
 
 
+<img src="../.gitbook/assets/file.excalidraw (19).svg" alt="" class="gitbook-drawing">
+
 ### Repaying Debt
 
 At any stage a borrower can repay their debt to get back their claim on their Collateral. They stream in their original Debt Amount, which causes the streamed D to be burnt, and their collateral to be unlocked.&#x20;
 
-\
 
+
+<img src="../.gitbook/assets/file.excalidraw (20).svg" alt="" class="gitbook-drawing">
 
 ### Preventing Attacks
 
