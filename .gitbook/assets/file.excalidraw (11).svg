@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 103" width="200" height="206">
+  <!-- svg-source:excalidraw -->
+  <!-- payload-type:application/vnd.excalidraw+json --><!-- payload-version:2 --><!-- payload-start -->eyJ2ZXJzaW9uIjoiMSIsImVuY29kaW5nIjoiYnN0cmluZyIsImNvbXByZXNzZWQiOnRydWUsImVuY29kZWQiOiJ4nHVSyU7DMFx1MDAxML33K6JwRZCVJL2xXHUwMDFkKiRcdTAwMGX0XHUwMDAwXHUwMDEyQsjE08SNa0e2u4H679hu6YRcImTJkt8sb97zfI2CIDTbXHUwMDFlwnFcdTAwMTDCpiacUUXW4bnDV6A0k8KGXHUwMDEy/9ZyqWqf2Vx1MDAxYdPr8eUl6fuLhplcdTAwMGYpu4taLvZlwGFcdTAwMDHCaJv4at9B8OXvXHUwMDAxkYLaXHUwMDEw0XDwXHUwMDA1PjTgyk/BRyk8bVVUaZLkUXpMYPrOslx1MDAxOaA2OiNcXFx1MDAwM0ZcdTAwMWNcdTAwMTSmpVpdzWX1Xj4k9cPTWpmX+TWSzlx1MDAxOOdTs+V+KC2tdoxpo2RcdTAwMDfPjJr2x4BcdTAwMDH+X5WSy6ZcdTAwMTWgnfj4iMqe1MxsXHUwMDFkXHUwMDE2RUd078A4QGRjX3mF+l1FNvBjz30ruVSO+yxcdTAwMDZ3kP2D1F1jR1x1MDAxMFx1MDAxNHNITsvZXGZz1lx1MDAwN0VcdTAwMTnStsCa1jhcZp3V4E2Ns+gqT8q0QjGOoJ9Q/71vaKVcIlx1MDAwYpi4XHUwMDEyseR86IegXHUwMDA3P37WXHUwMDAwXHUwMDE3IT0gO1Tg8u9cdTAwMDdcdTAwMGKEXGbLnpL9T8dFklx1MDAxN1FcdTAwMTaXWVGgXG7ORHdKz2Xd4XJ4dGdv3zS0yzs1tuVxNCuN0Sn7hF9twlx1MDAxNYP1zV9njVwiQvdE2UnD0UGD2yjwWnej3TdFrt6sIn0=<!-- payload-end -->
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@undefined/dist/excalidraw-assets/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@undefined/dist/excalidraw-assets/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@undefined/dist/excalidraw-assets/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="100" height="103" fill="transparent"/><g stroke-linecap="round" transform="translate(30 30) rotate(0 20 21.5)"><path d="M10 0 C15.55 0.59, 25.05 -0.77, 30 0 C38.02 0.39, 41.23 2.31, 40 10 C37.41 14.08, 40.77 20.4, 40 33 C42.54 39.04, 38.01 41.99, 30 43 C29.23 41.93, 21.62 41.99, 10 43 C6.4 40.06, 3.34 38.61, 0 33 C1.79 23.83, 1.52 16.29, 0 10 C-3.17 1.88, 3.06 2.5, 10 0" stroke="none" stroke-width="0" fill="#a5d8ff"/><path d="M10 0 C19.2 -0.52, 25.53 0.48, 30 0 M10 0 C16.87 -0.19, 25.42 -0.18, 30 0 M30 0 C34.85 -0.59, 40.24 1.73, 40 10 M30 0 C38.94 -1.01, 41.42 1.22, 40 10 M40 10 C39.87 18.28, 38.79 24.54, 40 33 M40 10 C40.66 19.11, 40.16 28.16, 40 33 M40 33 C40.18 39.14, 37.58 41.15, 30 43 M40 33 C38.82 39.41, 36.31 43.3, 30 43 M30 43 C22.83 41.48, 15.76 43.46, 10 43 M30 43 C23.38 42.87, 15.47 42.4, 10 43 M10 43 C1.59 44.39, 1.56 40.27, 0 33 M10 43 C1.11 43.01, 0.66 41.88, 0 33 M0 33 C-1.29 24.26, -0.74 18.85, 0 10 M0 33 C0.28 26.74, 0.6 21.81, 0 10 M0 10 C0.7 4.81, 5.13 0.84, 10 0 M0 10 C-0.53 4.9, 3.47 0.93, 10 0" stroke="#1e1e1e" stroke-width="2" fill="none"/></g></svg>

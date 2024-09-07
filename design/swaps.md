@@ -48,6 +48,8 @@ Every block a keeper-bot can bump the stream queue per pair, once only, and coll
 \
 
 
+<img src="../.gitbook/assets/file.excalidraw (11).svg" alt="" class="gitbook-drawing">
+
 ### Limit Orders
 
 Limit orders can be done as price-conditional swaps that sit in pending until meeting the correct price. If the price is achieved, they are pulled into the stream queue and consumed. Pending swaps are inserted in the array in reverse price-order, thus swaps closest to the current price are found by reverse-searching the array (starting at the end) and can easily be removed from the array. A swap furtherest away from the current price will thus pay the highest gas cost to insert and re-order the array. Everytime the stream queue per pair is bumped, the pending swap queue last index is checked for execution. If it can be executed, it is moved into the stream queue and matched. Since the stream queue is processed first, the pool price will naturally move into a range that could match into a pending swap, thus checking the pending swap queue at the end is the correct choice.&#x20;
