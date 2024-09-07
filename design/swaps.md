@@ -4,35 +4,38 @@
 
 The continuous liquidity formula is used. All swaps are streaming swaps, which break them up into smaller streams to achieve the global Min Slippage, which are then queued into blocks. The Min Slippage for all pools is default 15BPS, but can be lowered by the DAO/Owner. The stream quantity is computed as per the smaller of the two pools a swap is being performed over.&#x20;
 
-\
+<pre><code><strong>x = swapAmountIn
+</strong><strong>X = assetInDepth
+</strong><strong>y = swapAmountOut
+</strong>X = assetOutDepth
 
+<strong>y = x Y / (x+X)
+</strong></code></pre>
 
-streamQuantity = swapAmountIn /(globalMinSlippage \* smallerPoolDepth)
+```
+q = streamQuantity
+x = swapAmountIn
+S = globalMinSlippage
+D = smallerPoolDepth
+s = streamAmountIn
 
-streamAmountIn = swapAmountIn / streamQuantity
+q = x / (S * D)
+s = x / q
+```
 
-\
+### Asset <> Asset
 
+<pre><code><strong>Pool1: A:D1
+</strong><strong>Pool2: D2:B
+</strong><strong>a = swapIn
+</strong><strong>b = swapOut
+</strong>
+d = a*D1/(a+A)
+b = d*B/(d+D2)
+b = (a*D1*B)/((d+D2)*(a+A))
 
-swapAmountOut = streamAmountIn \* balanceOut/(streamAmountIn + balanceIn)
-
-\
-
-
-ab, cd
-
-b = aB/(a+A)
-
-c = b
-
-d = cD/(c+C)
-
-d = (aBD)/((c+C)\*(a+A))
-
-A = a+A; B = B-b; C = b+C; D = D-d
-
-\
-
+A = A+a; D1 = D1-d; D2 = D2+d; B = B-b
+</code></pre>
 
 ### Stream Queue
 
