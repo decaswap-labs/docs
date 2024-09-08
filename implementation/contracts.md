@@ -15,11 +15,11 @@ All pool assets should be held in a single contract:
 * D Liquidity Units
 * Pool Ownership Units
 * Pool Synthetic Units
-* Pool Synthetic Collateral
-* Pool Debt Stored
+* User Synthetic Collateral
+* User Debt Units
 * Pool Assets&#x20;
-* Pending and Processing Swaps
-* Accumulated Fees for Keepers and System
+* Stream Queue and Order Queue
+* Accumulated Fees for Keepers and System Income
 
 ### Logic Contract
 

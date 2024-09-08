@@ -4,8 +4,9 @@
 
 ### Swap Deposit
 
+Managed as a linked list for easy insertion/removal. &#x20;
+
 ```
-mapping(address => mapping(address => uint[])) public swapQueueForPair;
 mapping(address => mapping(address => uint)) public lastStreamedIndexForPair;
 ```
 
@@ -28,12 +29,12 @@ struct Swap {
     }
 ```
 
-1. A user swaps in a direction `(tokenIn(tokenOut))`
-2. Process outgoing streams first, accumulate fees in outgoing asset, then exit gasLimit&#x20;
-3. Check for opposite swaps, if any, match and settle
-4. If no opposite, check last index pending, if valid price, then move to Stream Queue&#x20;
-5. Match, Settle
-6. Transfer out Asset, send fees to System
+1. A user deposits a swap in a direction, add to end of Stream Queue
+2. Start Stream Queue first from the last processed index
+3. Stream the Queue, accumulate fees in outgoing asset, then exit at gasLimit, update the last processed index&#x20;
+4. Check Order Queue, if valid price, then add to Opposite Stream Queue
+5. Check Opposite Swaps, if any, Match then Settle with User's SwapID
+6. Transfer out Assets, send Fees to System
 
 ```
 processStream(address tokenIn, address tokenOut, uint gasLimit=100,000)
@@ -41,15 +42,21 @@ processStream(address tokenIn, address tokenOut, uint gasLimit=100,000)
 => stream the queue, exit at gasLimit
 => fees accumulated in outgoing asset for msg.sender swapID
 
-checkSwapQueueForOne(address tokenOut, address tokenIn)
-=> if found, match, settle, pay fees
+checkOrderQueue(address tokenOut, address tokenIn)
+=> if found move to SwapQueue
 
-checkOrderQueueForOne(address tokenOut, address tokenIn)
-=> if found, match, settle, pay fees
+checkSwapQueue(address tokenOut, address tokenIn) //opposite direction
+=> if found, match, settle
 
 processTransferOut(uint swapID)
-=> send out for user
+=> send out for user, pay fees
 ```
+
+###
+
+
+
+<img src="../.gitbook/assets/file.excalidraw (22).svg" alt="" class="gitbook-drawing">
 
 ### Order Deposit
 
