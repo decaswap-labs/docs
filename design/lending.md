@@ -2,7 +2,7 @@
 
 The lending design is an early-liquidation, dynamic-interest, no-expiry loan scheme using Liquidity Synths. Only participants in the lending scheme can hold Synths, so to receive a loan they must accept the terms of holding synths, which come with an interest rate.&#x20;
 
-<img src="../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 ### Liquidity Synths&#x20;
 

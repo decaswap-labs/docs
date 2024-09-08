@@ -12,11 +12,7 @@ An early-liquidation dynamic-interest lending scheme is supported with 50% LTV l
 
 There is a DECADAO that earn 10% System Income and control protocol parameters. The DECADAO controls the DECAMINT, a reserve that streams rewards to the LPs.&#x20;
 
-
-
-
-
-<img src=".gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src=".gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
 
 DECASWAP borrows much of THORChain's novel ideas and imports them to the EVM. DECASWAP is built by the founder of THORChain.&#x20;
 

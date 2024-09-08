@@ -60,10 +60,12 @@ processTransferOut(uint swapID)
 
 ### Order Deposit
 
+Uses a linked list.&#x20;
+
 1. A user deposits in a direction, with price
 2. If current price valid, then process as per Swap Deposit
-3. If not valid, search pending Swap Queue, in reverse, looking for correct price to insert.&#x20;
-4. Insert and re-order array.&#x20;
+3. If not valid, search Order Queue, looking for correct price to insert.&#x20;
+4. Insert.&#x20;
 
 ```
 swap(address tokenIn, address tokenOut, uint amountIn, uint priceToStartStreaming) public
@@ -88,9 +90,12 @@ cancel(uint swapID) public
 ### Keeper Bot - Swap Queue
 
 1. Nominates pair, direction, gas limit
-2. Starts at (2) above
-3. Fees are 5BPS on all streams, accumulated in outgoing asset for the bot
-4. Will do Stream Queue first, and also do the Pending Swap Queue.&#x20;
+2. Fees are 5BPS on all streams, accumulated in outgoing asset for the bot
+3. Will do Stream Queue first, and also do the Order Queue.&#x20;
+
+
+
+<img src="../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 ## Liquidity
 
@@ -106,5 +111,11 @@ cancel(uint swapID) public
 ### Keeper Bot - Pool Queue
 
 1. Nominates pool, direction, gas limit
-2. Starts at (2) above
-3. Fees are 5BPS on all streams, 100BPS on bad debt.
+2. Fees are 5BPS on all streams, 50BPS on bad debt.
+
+<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+
+
+
+<img src="../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+

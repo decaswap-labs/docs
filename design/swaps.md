@@ -68,7 +68,7 @@ Every time the Stream Queue per pair is bumped, the Order Queue last index is ch
 
 All swaps pay the System Income, which is assessed as 15BPS on finalised swaps. The fee is first converted to USDC then split three-ways: 10% to the DECADAO, then the remainder split equally between the DECAPOOL and Pool LPs. The USDC is sent to a single Income Contract which allows users to claim.
 
-<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 \
 \
