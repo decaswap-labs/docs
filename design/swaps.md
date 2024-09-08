@@ -6,13 +6,13 @@ The continuous liquidity formula is used. All swaps are streaming swaps, which b
 
 #### Swap
 
-<pre><code><strong>x = swapAmountIn
-</strong><strong>X = assetInDepth
-</strong><strong>y = swapAmountOut
-</strong>X = assetOutDepth
-
-<strong>y = x Y / (x+X)
-</strong></code></pre>
+```
+x = swapAmountIn
+X = assetInDepth
+y = swapAmountOut
+X = assetOutDepth
+y = x * Y / (x+X)
+```
 
 ```
 q = streamQuantity
@@ -27,17 +27,18 @@ s = x / q
 
 #### Asset <> Asset Swaps
 
-<pre><code><strong>Pool1: A:D1
-</strong><strong>Pool2: D2:B
-</strong><strong>a = swapIn
-</strong><strong>b = swapOut
-</strong>
+```
+Pool1: A:D1
+Pool2: D2:B
+a = swapIn
+b = swapOut
+
 d = a*D1/(a+A)
 b = d*B/(d+D2)
 b = (a*D1*B)/((d+D2)*(a+A))
 
 A = A+a; D1 = D1-d; D2 = D2+d; B = B-b
-</code></pre>
+```
 
 ### Stream Queue
 
@@ -47,22 +48,19 @@ All processing swaps live in Stream Queue that are executed one stream per block
 
 If a user deposits a swap that finds another processing stream in the opposite direction, the two entire swaps are matched and one (or both) swaps will entirely be consumed. In this case, no D is moved at all, the swapAmounts are switched between the users and settled. One (or both) of the assets are transferred out and fees collected.&#x20;
 
-
-
 <img src="../.gitbook/assets/file.excalidraw (12).svg" alt="" class="gitbook-drawing">
 
 Every block a keeper-bot can bump the stream queue per pair, once only, and collect 5BPS on all streams. There can be unlimited swap-deposits by users though, they will simply skip stream-queue processing if already done.&#x20;
-
-
 
 ```
 processPair(address asset, address asset, uint gasLimit)
 ```
 
-### Limit Orders
+### Limit Orders - Order Queue
 
-Limit orders can be done as price-conditional swaps that sit in pending until meeting the correct price. If the price is achieved, they are pulled into the stream queue and consumed. Pending swaps are inserted in the array in reverse price-order, thus swaps closest to the current price are found by reverse-searching the array (starting at the end) and can easily be removed from the array. A swap furtherest away from the current price will thus pay the highest gas cost to insert and re-order the array. Everytime the stream queue per pair is bumped, the pending swap queue last index is checked for execution. If it can be executed, it is moved into the stream queue and matched. Since the stream queue is processed first, the pool price will naturally move into a range that could match into a pending swap, thus checking the pending swap queue at the end is the correct choice. \
+Limit orders can be done as price-conditional swaps that sit in the Order Queue until meeting the correct price. If the price is achieved, they are pulled into the Stream Queue and consumed. Orders are inserted in a linked-list thus orders closest to the current price are found by searching and can easily be removed. An Order furtherest away from the current price will thus pay the highest gas cost to insert.&#x20;
 
+Every time the Stream Queue per pair is bumped, the Order Queue last index is checked for execution. If it can be executed, it is moved into the Stream Queue and matched. Since the Stream Queue is processed first, the pool price will naturally move into a range that could match an Order, thus checking the Order Queue at the end is the correct choice.&#x20;
 
 <img src="../.gitbook/assets/file.excalidraw (13).svg" alt="" class="gitbook-drawing">
 

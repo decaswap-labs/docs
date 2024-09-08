@@ -8,13 +8,8 @@ The lending design is an early-liquidation, dynamic-interest, no-expiry loan sch
 
 Liquidity synths allow asset-denominated collateral to be stored in the pool liquidity. The pool liquidity can underwrite the asset-denominated collateral across a range of prices because pool liquidity is less volatile than a non-coupled asset. To mint a synth, users deposit assets into pools and D Units are insta-minted to match the deposit and their collateral is stored in units of asset deposited. There is a cap of 33% of the depth of the pool (in asset terms) that synths are allowed to be minted up to. When a user withdraws a Synth, the owed asset amount is taken from the pool balance and the paired D  quantity is burnt.&#x20;
 
-
-
-
-
 <img src="../.gitbook/assets/file.excalidraw (14).svg" alt="" class="gitbook-drawing">
 
-\
 
 
 ### Synth Units
