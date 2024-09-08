@@ -40,21 +40,14 @@ Pool LPs earn all the fees and an interest rate from Synths. At 33% Synth Loadin
 
 ### Synths As Lending Collateral
 
-Synths are only minted to store lending collateral. The loan is created by assessing 50% of the value in D Balance of the collateral, minting it in more D, and streaming on to the Debt Asset to the user. For example, if 10 WBTC are deposited for lending collateral, worth $600k, then $300k in D is minted and streamed out. A net gain of $300k is stored by the system.&#x20;
-
-
-
-\
+Synths are only minted to store lending collateral. The loan is created by assessing 50% of the value in D Balance of the collateral, minting it in more D, and streaming on to the Debt Asset to the user. For example, if 10 WBTC are deposited for lending collateral, worth $600k, then $300k in D is minted and streamed out. A net gain of $300k is stored by the system. \
 
 
 <img src="../.gitbook/assets/file.excalidraw (18).svg" alt="" class="gitbook-drawing">
 
 ### Liquidation
 
-If a collateral position drops below 101% its debt value, then anyone can liquidate by deleting the position and claiming the 1% the stored Debt Value, swapped to any asset. If a position falls into “bad debt” (below 100%), then it means DECAVault holders will bear the position until it ever comes good. However since the collateral is a liability to Pool LPs, it is not necessarily a precipitous scenario, because Pool LPs are inherently short the asset they LP with.
-
-\
-
+If a collateral position drops below 101% its debt value, then anyone can liquidate by deleting the position and claiming the 1% of stored Debt Value, swapped to any asset. If a position falls into “bad debt” (below 100%), then it means DECAVault holders will bear the position until it ever comes good. However since the collateral is a liability to Pool LPs, it is not necessarily a precipitous scenario, because Pool LPs are inherently short the asset they LP with.
 
 <img src="../.gitbook/assets/file.excalidraw (19).svg" alt="" class="gitbook-drawing">
 
@@ -68,7 +61,7 @@ At any stage a borrower can repay their debt to get back their claim on their Co
 
 ### Preventing Attacks
 
-Since the max LTV a user can get is 50%, they will end up always with less debt than 50% of their deposit. This will prevent “bad debt” attacks, since the user is essentially just selling their tokens for a fee, which they can do anyway.
+Since the max LTV a user can get is 50%, they will end up always with less debt than 50% of their deposit. This will prevent “bad debt” attacks, since the user is essentially just selling their tokens for a fee, which they can do anyway, if they get liquidated.&#x20;
 
 \
 \
