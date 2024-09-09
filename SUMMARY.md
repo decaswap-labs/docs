@@ -13,5 +13,6 @@
 ## Implementation
 
 * [Contracts](implementation/contracts.md)
-* [Streaming Swaps](implementation/streaming-swaps.md)
+* [Swap Processing](implementation/swap-processing.md)
+* [Pool Processing](implementation/pool-processing.md)
 * [Safety](implementation/safety.md)
