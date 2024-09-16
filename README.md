@@ -14,7 +14,7 @@ There is a DECADAO that earn 10% System Income and control protocol parameters. 
 
 <img src=".gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
 
-DECASWAP borrows much of THORChain's novel ideas and imports them to the EVM. DECASWAP is built by the founder of THORChain.&#x20;
+DECASWAP borrows much of THORChain's novel ideas and imports them to the EVM. DECASWAP is built by a co-founder of THORChain.&#x20;
 
 1. Continuous Liquidity
 2. Streaming Swaps
