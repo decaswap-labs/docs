@@ -24,7 +24,7 @@ There is a mechanism to become a “Global LP” which simply involves buying D 
 
 ### DECA Token
 
-The DECA token is fixed-supply and available for buy-sell in the market as an independent pool. DECA can attract a speculative premium and is a proxy for the yield of the system. On launch, the owner will buy 30% of the supply of DECA and deposit into the DAO. The owner will also buy 30% of the DECA pool and deposit into the DECAMint. The final 40% of the supply will stay in the pool for the market to participate in.
+The DECA token is fixed-supply and available for buy-sell in the market as an independent pool. DECA can attract a speculative premium and is a proxy for the yield of the system. 30% of the supply of DECA is deposited in the DECAMint at the start. The final 40% of the supply will stay in the pool for the market to participate in.
 
 <img src="../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
 
