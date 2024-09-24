@@ -13,6 +13,7 @@
 ## Implementation
 
 * [Contracts](implementation/contracts.md)
+* [Fees](implementation/fees.md)
 * [Swap Processing](implementation/swap-processing.md)
 * [Pool Processing](implementation/pool-processing.md)
 * [Safety](implementation/safety.md)
