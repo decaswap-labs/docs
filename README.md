@@ -8,7 +8,7 @@ DECASWAP allows users to add assets into pools and earn passive yield paid in US
 
 Pools use [THORChain's continuous liquidity design](https://docs.thorchain.org/thorchain-finance/continuous-liquidity-pools) with streaming swaps that allow it to be capital efficient; as well supporting limit orders - “price conditional swaps”. A public keeper function is exposed allowing anyone to process the streaming swap queue and claim fees. Opposite direction swaps are matched outside the swap queue. Due to this, and the fact that the swap queue cannot be re-ordered, most forms of MEV are avoided.&#x20;
 
-An early-liquidation dynamic-interest lending scheme is supported with 50% LTV loans from pool collateral, borrowing from [THORChain's liquidity synthetic's idea](https://docs.thorchain.org/thorchain-finance/synthetic-asset-model). The collateral can be liquidated for a small fee below a liquidation price.&#x20;
+An early-liquidation dynamic-interest lending scheme is supported with 50% LTV loans from pool collateral, borrowing from [THORChain's liquidity synthetic's idea](https://docs.thorchain.org/thorchain-finance/synthetic-asset-model). The collateral can be liquidated for a small fee below a liquidation price, set around 101% of Collateral Value.&#x20;
 
 There is an asset DECA, of which pool LPs are entitled to 10% of System Income. DECA Pool LPs also control some protocol parameters, in particular the DECAMINT, a reserve that streams DECA rewards to LPs.&#x20;
 
