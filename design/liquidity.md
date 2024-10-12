@@ -8,6 +8,10 @@ LP Ownership units (internal mappings) are based on deposited assets compared wi
 
 <img src="../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
 
+$$
+p' = P * \frac{d'A+Dd'+2DA}{d'A+Da'+2d'a'}
+$$
+
 ### Removing Liquidity
 
 Users remove liquidity by redeeming their liquidity shares `P'` which stream removes their claim on the liquidity. Arbitrage should re-balance the pools throughout.&#x20;
