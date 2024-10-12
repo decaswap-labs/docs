@@ -16,7 +16,7 @@
 1. Nominates pool, direction, gas limit
 2. Fees are 5BPS on all streams, 50BPS on bad debt.
 
-<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 <img src="../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 

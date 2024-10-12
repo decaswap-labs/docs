@@ -2,12 +2,11 @@
 
 ### System Overview
 
-There are 4 types of pools on the protocol; they are all single-sided:
+All pools are single-sided on the protocol, but&#x20;
 
-1. All pools (AAVE, UNI, WIF)
-2. Blue-chip pools (WBTC, WETH, USDT, USDC)
-3. Global Pool (D)
-4. DECA Pool (DECA)
+1. Asset Pools (WBTC, WETH) etc
+2. Global Pool (D)
+3. DECA Pool (DECA)
 
 <img src="../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
@@ -17,25 +16,29 @@ All pools are single-sided, with only external assets deposited. They are matche
 
 <img src="../.gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
 
-### Blue Chip Pools
-
-Blue Chip Pools are a sub-set of Pools, with a certain privilege - `D` is instantly minted when assets are deposited instead of being purchased by arbitrage. This allows them to scale in depth rapidly. `D` is intantly-burnt when the asset liquidity is removed.&#x20;
-
-<img src="../.gitbook/assets/file.excalidraw (7).svg" alt="" class="gitbook-drawing">
+{% hint style="warning" %}
+If a zombie asset is added, no arbitrage will occur and the LP will experience negative slip on their own assets.&#x20;
+{% endhint %}
 
 {% hint style="info" %}
 &#x20;LPs cannot hold D, so when they deposit, they are taking up a short position of their asset versus {everything else} and are notionally long the volatility of that pool. Because of this, it makes sense to only pay the LP in USDC, and separate the principle from the yield.&#x20;
 {% endhint %}
 
+### Genesis Pools
+
+Genesis Pools are created by the owner, which mints the initial supply of `D` and allocates it to a set of pools eg WBTC, WETH, USDT and USDC and DECA. The genesis pool liquidity is permanently locked and can never be withdrawn. After minting and allocating the initial supply of `D` the D supply is forever programmatically controlled.&#x20;
+
+<img src="../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+
 ### Pool Creation
 
-The Owner starts the system by creating a number of pools assigned to various tokens eg WBTC, WETH, USDT and USDC and DECA. The owner sets the balance of D minted as well as the required starting liquidity for each asset. Anyone can add the required liquidity. Once achieved, the pool starts trading. LPs are locked for 7 days.&#x20;
+Anyone can add a new pool by providing assets - the `B` asset to provide, and some other, existing, asset which will stream to `D` to provide the matching liquidity.&#x20;
 
 <img src="../.gitbook/assets/file.excalidraw (8).svg" alt="" class="gitbook-drawing">
 
-### Global Pool (DPOOL)
+### Global Pool
 
-There is a mechanism to become a “Global LP” which simply involves buying D and locking it in the DPOOL. DPOOL participants earn half of Global Income (from all pools) and experience an Impermanent Loss/Gain which is correlated to the performance of the system as a whole. It will be difficult to price DPOOL in units of anything other than USDC. D will be volatile.
+There is a mechanism to become a “Global LP” which simply involves streaming from any listed pool into a Global Pool. The Global Pool participants earn half of Global Income (from all pools) and experience an Impermanent Loss/Gain which is correlated to the performance of the system as a whole.&#x20;
 
 <img src="../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
 

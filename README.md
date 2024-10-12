@@ -4,7 +4,7 @@ description: Overview of DECASWAP
 
 # DECASWAP AMM
 
-DECASWAP allows users to add assets into pools and earn passive yield paid in USDC. There are single-sided Pool LPs, as well as a Global LP of all pools at the same time - the DPOOL. The system controls the virtual balances of the paired asset - D Liquidity Units; which cannot be bought or held directly. Any asset can be added to the system if it achieves a minimum liquidity commitment.&#x20;
+DECASWAP allows users to add assets into pools and earn passive yield paid in USDC. There are two types of LPs - Pool LPs, as well as a Global LP of all pools at the same time. The system controls the virtual balances of the paired asset - D Liquidity Units; which cannot be bought or held directly. Any asset can be added to the system.&#x20;
 
 Pools use [THORChain's continuous liquidity design](https://docs.thorchain.org/thorchain-finance/continuous-liquidity-pools) with streaming swaps that allow it to be capital efficient; as well supporting limit orders - “price conditional swaps”. A public keeper function is exposed allowing anyone to process the streaming swap queue and claim fees. Opposite direction swaps are matched outside the swap queue. Due to this, and the fact that the swap queue cannot be re-ordered, most forms of MEV are avoided.&#x20;
 
