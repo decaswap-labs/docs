@@ -2,17 +2,18 @@
 
 ### System Overview
 
-All pools are single-sided on the protocol, but&#x20;
+There are two pool-types on the network:
 
 1. Asset Pools (WBTC, WETH) etc
 2. Global Pool (D)
-3. DECA Pool (DECA)
 
 <img src="../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
-### All Pools
+### Asset Pools
 
-All pools are single-sided, with only external assets deposited. They are matched to an internal, arbitrary, unit of account referred to as “D”. Deposited liquidity is streamed in, which acquires the `D` asset thorugh arbitrage against all other pools. The reverse happens when liquidity is removed. Since D is matched to all pools, flows across pools simply move the D between, but D never leaves the contract.
+Asset pools have single-sided UX, (with only external assets deposited), but they are matched to an internal, arbitrary, unit of account referred to as “D”. Pool LPs thus own dual-sided liquidity, but they can never withdraw D from the system or sell it. Since D has a programmatic fixed-supply and can only be bought as move LPs join the system, D should outperform most of the assets. This stops all value-leakage, and all speculation on the D asset is captured by the system itself - which is enjoyed by LPs themselves.&#x20;
+
+Deposited liquidity is streamed in, which acquires the `D` asset through arbitrage against all other pools. The reverse happens when liquidity is removed. Since D is matched to all pools, flows across pools simply move the D between, but D never leaves the contract.
 
 <img src="../.gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
 
@@ -32,7 +33,10 @@ Genesis Pools are created by the owner, which mints the initial supply of `D` an
 
 ### Pool Creation
 
-Anyone can add a new pool by providing assets - the `B` asset to provide, and some other, existing, asset which will stream to `D` to provide the matching liquidity.&#x20;
+Anyone can add a new pool by providing the starting liquidity:
+
+1. Another existing asset `A` which will stream to `D`&#x20;
+2. The asset to match `B`
 
 <img src="../.gitbook/assets/file.excalidraw (8).svg" alt="" class="gitbook-drawing">
 
@@ -40,7 +44,7 @@ Anyone can add a new pool by providing assets - the `B` asset to provide, and so
 
 There is a mechanism to become a “Global LP” which simply involves streaming from any listed pool into a Global Pool. The Global Pool participants earn half of Global Income (from all pools) and experience an Impermanent Loss/Gain which is correlated to the performance of the system as a whole.&#x20;
 
-<img src="../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (4) (1).svg" alt="" class="gitbook-drawing">
 
 ### DECA Pool (DECADAO)
 

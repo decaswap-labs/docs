@@ -1,16 +1,22 @@
 # Lending
 
-The lending design is an early-liquidation, dynamic-interest, no-expiry loan scheme using Liquidity Synths. Only participants in the lending scheme can hold Synths, so to receive a loan they must accept the terms of holding synths, which come with an interest rate.&#x20;
+The lending design is an early-liquidation, dynamic-interest, no-expiry loan scheme using Liquidity Synths. Lending is added in order to dramatically increase the yield earnt by Liquidity Providers.&#x20;
 
 <img src="../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 ### Liquidity Synths&#x20;
 
-Liquidity synths allow asset-denominated collateral to be stored in the pool liquidity. The pool liquidity can underwrite the asset-denominated collateral across a range of prices because pool liquidity is less volatile than a non-coupled asset. To mint a synth, users deposit assets into pools and D Units are insta-minted to match the deposit and their collateral is stored in units of asset deposited. There is a cap of 33% of the depth of the pool (in asset terms) that synths are allowed to be minted up to. When a user withdraws a Synth, the owed asset amount is taken from the pool balance and the paired D  quantity is burnt.&#x20;
+Liquidity synths allow asset-denominated collateral to be stored in the pool liquidity. The pool liquidity can underwrite the asset-denominated collateral across a range of prices because pool liquidity is less volatile than a non-coupled asset. To mint a synth, users stream-deposit assets into pools and their collateral is stored in units of asset deposited. There is a cap of 50% of the depth of the pool (in asset terms) that synths are allowed to be minted up to. When a user withdraws a Synth, the owed asset amount is streamed out of the pool.
+
+
+
+{% hint style="info" %}
+Minting a synth is adding liquidity; but ownership is stored with separate accounting.
+{% endhint %}
 
 <img src="../.gitbook/assets/file.excalidraw (14).svg" alt="" class="gitbook-drawing">
 
-
+<img src="../.gitbook/assets/file.excalidraw (24).svg" alt="" class="gitbook-drawing">
 
 ### Synth Units
 
@@ -28,15 +34,21 @@ Impermanent Loss/Gain is exacerbated by Synth Leverage. At 33% of the pool, Pool
 
 ### Interest Rate Mechanism
 
-Pool LPs earn all the fees and an interest rate from Synths. At 33% Synth Loading, Pool LPs are earning 1.5x their normal fee rate. The interest rate is coupled to the utilization of the Pool in Synth - set to a value to target the Synth Cap on a linear curve. This would likely be 0% at 0% Caps, \~5% at Max Caps, and extending to 100% at 100% Caps (the entire pool is underwriting the Synths, experienced after a 9x unfavorable price change).
+Synth holders can not claim the fees of the liquidity their collateral is stored against, so they essentially forfeit their yield to Pool LPs. At 50% Synth Loading, Pool LPs are earning 2x their normal fee rate.&#x20;
 
+In addition, an interest rate is coupled to the utilization of the Pool in Synth - this ensures Pools do not become over-weight Synths.&#x20;
 
+```
+interest_rate = 2 * synth_utilisation ^ 2;
+synth_utilisation = synth_depth / pool_depth
 
-
+0% Synths: 2 * 0^2 = 0% APY
+10% Synths: 2 * 0.1^2 = 2% APY
+25% Synths: 2 * 0.25^2 = 12.5% APY
+50% Synths: 2 * 0.5^2 = 50% APY // Maximum Cap
+```
 
 <img src="../.gitbook/assets/file.excalidraw (17).svg" alt="" class="gitbook-drawing">
-
-
 
 ### Synths As Lending Collateral
 
@@ -47,7 +59,7 @@ Synths are only minted to store lending collateral. The loan is created by asses
 
 ### Liquidation
 
-If a collateral position drops below 101% its debt value, then anyone can liquidate by deleting the position and claiming the 1% of stored Debt Value, swapped to any asset. If a position falls into “bad debt” (below 100%), then it means DECAVault holders will bear the position until it ever comes good. However since the collateral is a liability to Pool LPs, it is not necessarily a precipitous scenario, because Pool LPs are inherently short the asset they LP with.
+If a collateral position drops below 101% its debt value, then anyone can liquidate by deleting the position and claiming the 1% of stored Debt Value, swapped to any asset. If a position falls into “bad debt” (below 100%), then it means all LPs will bear the position until it ever comes good. However since the collateral is a liability to Pool LPs, it is not necessarily a precipitous scenario, because Pool LPs are inherently short the asset they LP with.
 
 <img src="../.gitbook/assets/file.excalidraw (19).svg" alt="" class="gitbook-drawing">
 
