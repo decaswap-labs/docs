@@ -9,12 +9,8 @@ Every stream, pay the keeper 5BPS.
 
 #### Liquidity Fees&#x20;
 
+Every transferOut, retain 15BPS and pay to the System Income
 
-
-2\) At end of execution, D is accumulated from all streams, so swap D to USDC&#x20;
-
-3\) Allocate 1/3 to `msg.sender` ie, the keeper.bot&#x20;
-
-4\) Allocate 1/10 of remaining to DECA pool LP 5) Allocate 1/2 of remaining to DPool LP&#x20;
-
-6\) Allocate rest to transferOut asset Pool LP Since Pool Contract has the mappings of assets, pool LP, global LP, then let everyone claim directly from pool contract `claimFees(pool)`
+1. Retain 45% to the Pool LPs
+2. Swap 1/10 remaining to DECA Pool LPs
+3. Swap remaining to USDC to allocate to Global LPs
