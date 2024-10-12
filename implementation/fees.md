@@ -1,48 +1,15 @@
 # Fees
 
-### Do we want to hijack people's EOA transactions to run the keeper queue: No
+#### Keeper Fees&#x20;
 
-If someone swapping `swap(token token)`, then we may as well use that swap, to "bump the queue".
+Every stream, pay the keeper 5BPS.
 
-Or do we leave "bump the queue" to the keeper bot. Yes
+1. Keep in pool contract to minimise gas costs&#x20;
+2. &#x20;Accrued in D per stream, swap to USDC, allocate to `msg.sender`
 
-
-
-When someone swaps, they simply "deposit" their swap, and hand it over to the keeper bots.&#x20;
-
+#### Liquidity Fees&#x20;
 
 
-Msg.sender has a mapping with USDC to claim&#x20;
-
-
-
-### Processing
-
-Keeper fees: accrue to `msg.sender`
-
-Liquidity fees: pay into the system income
-
-
-
-1\) 15BPS outbound fee on processed swaps&#x20;
-
-2\) 5BPS stream fee to pay&#x20;
-
-
-
-Keepers Fees&#x20;
-
-1\) Can stay in pool contract to minimise gas costs&#x20;
-
-2\) Accrued in USDC (ideally)&#x20;
-
-3\) Pay 10% to DECA stakers, 45% to global LP, and 45% to pool LP (of the outbound asset)&#x20;
-
-
-
-Stream Fees&#x20;
-
-1\) All streams go via D. Charge 20BPS in D per stream, before moving from D1 to D2.&#x20;
 
 2\) At end of execution, D is accumulated from all streams, so swap D to USDC&#x20;
 
