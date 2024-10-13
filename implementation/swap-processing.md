@@ -2,7 +2,41 @@
 
 ## Swap
 
-####
+
+
+```
+x = swapAmountIn
+X = assetInDepth
+y = swapAmountOut
+X = assetOutDepth
+y = x * Y / (x+X)
+```
+
+```
+q = streamQuantity
+x = swapAmountIn
+S = globalMinSlippage
+D = smallerPoolDepth
+s = streamAmountIn
+
+q = x / (S * D)
+s = x / q
+```
+
+#### Asset <> Asset Swaps
+
+```
+Pool1: A:D1
+Pool2: D2:B
+a = swapIn
+b = swapOut
+
+d = a*D1/(a+A)
+b = d*B/(d+D2)
+b = (a*D1*B)/((d+D2)*(a+A))
+
+A = A+a; D1 = D1-d; D2 = D2+d; B = B-b
+```
 
 ### Swap Deposit
 

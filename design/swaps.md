@@ -4,42 +4,6 @@
 
 The continuous liquidity formula is used. All swaps are streaming swaps, which break them up into smaller streams to achieve the global Min Slippage, which are then queued into blocks. The Min Slippage for all pools is default 15BPS, but can be lowered by the DAO/Owner. The stream quantity is computed as per the smaller of the two pools a swap is being performed over.&#x20;
 
-#### Swap
-
-```
-x = swapAmountIn
-X = assetInDepth
-y = swapAmountOut
-X = assetOutDepth
-y = x * Y / (x+X)
-```
-
-```
-q = streamQuantity
-x = swapAmountIn
-S = globalMinSlippage
-D = smallerPoolDepth
-s = streamAmountIn
-
-q = x / (S * D)
-s = x / q
-```
-
-#### Asset <> Asset Swaps
-
-```
-Pool1: A:D1
-Pool2: D2:B
-a = swapIn
-b = swapOut
-
-d = a*D1/(a+A)
-b = d*B/(d+D2)
-b = (a*D1*B)/((d+D2)*(a+A))
-
-A = A+a; D1 = D1-d; D2 = D2+d; B = B-b
-```
-
 ### Stream Queue
 
 All processing swaps live in Stream Queue that are executed one stream per block, and arranged per-pair (eg WBTC-WETH). When a user deposits a swap, they insert their Swap into the Queue, which will get processed alongside everyone else. They cannot pay for priority.&#x20;
