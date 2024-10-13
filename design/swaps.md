@@ -70,8 +70,6 @@ Every time the Stream Queue per pair is processed, the Order Queue last index is
 
 All swaps pay the System Income, which is assessed as 15BPS on finalised swaps. The fee is captured against the transferOut asset, and 45% is saved for Pool LPs themselves. 45% is then swapped to USDC and allocated to the Global LPs. The final 10% is swapped to DECA and allocated to DECA LPs.&#x20;
 
-<img src="../.gitbook/assets/file.excalidraw (23).svg" alt="" class="gitbook-drawing">
-
 <img src="../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
 
 \

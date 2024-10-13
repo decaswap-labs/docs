@@ -8,6 +8,7 @@
 * [Liquidity](design/liquidity.md)
 * [Swaps](design/swaps.md)
 * [Lending](design/lending.md)
+* [DECA](design/deca.md)
 * [Summary](design/summary.md)
 
 ## Implementation
