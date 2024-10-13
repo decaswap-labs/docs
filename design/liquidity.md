@@ -1,29 +1,8 @@
----
-description: >-
-  Asset Pools Asset pools have single-sided UX, (with only external assets
-  deposited), but they are matched to an internal,   If a zombie asset is added,
-  no arbitrage will occur and the LP will experien
----
-
 # Liquidity
-
-<img src="../.gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
-
-### Asset Pools
-
-Asset pools have single-sided UX, (with only external assets deposited), but they are matched to an internal,&#x20;
-
-{% hint style="warning" %}
-If a zombie asset is added, no arbitrage will occur and the LP will experience negative slip on their own assets.&#x20;
-{% endhint %}
-
-{% hint style="info" %}
-&#x20;LPs cannot hold D, so when they deposit, they are taking up a short position of their asset versus {everything else} and are notionally long the volatility of that pool. Because of this, it makes sense to only pay the LP in USDC, and separate the principle from the yield.&#x20;
-{% endhint %}
 
 ### Genesis Pools
 
-Genesis Pools are created by the owner, which mints the initial supply of `D` and allocates it to a set of pools eg WBTC, WETH, USDT and USDC and DECA. The genesis pool liquidity is permanently locked and can never be withdrawn. After minting and allocating the initial supply of `D` the D supply is forever programmatically controlled.&#x20;
+Genesis Pools are created by the owner, which mints the initial supply of `D` and allocates it to a set of pools eg WBTC, WETH, USDT and USDC and DECA. The genesis pool liquidity is permanently locked and can never be withdrawn. After minting and allocating the initial supply of `D` the D supply is there-after programmatically controlled.&#x20;
 
 <img src="../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
@@ -50,7 +29,13 @@ $$
 
 ### Removing Liquidity
 
-Users remove liquidity by redeeming their liquidity shares `P'` which stream removes their claim on the liquidity. Arbitrage should re-balance the pools throughout.&#x20;
+Users remove liquidity by redeeming their liquidity shares `P'` which stream removes their claim on the liquidity. Arbitrage should re-balance the pools throughout. The share of the Asset side is \*twice\* the depth, since the pool is dual-sided.&#x20;
+
+
+
+{% hint style="info" %}
+Liquidity is always streamed in and streamed out. This will allow arbitrage to occur to correct price imbalances.&#x20;
+{% endhint %}
 
 ```
 A' = 2 * (A * P' / P)

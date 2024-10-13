@@ -10,6 +10,16 @@ Deposited liquidity is streamed in, which acquires the `D` asset through arbitra
 
 <img src="../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
+{% hint style="warning" %}
+If a zombie asset is added, no arbitrage will occur and the LP will experience negative slip on their own assets.&#x20;
+{% endhint %}
+
+{% hint style="info" %}
+&#x20;LPs cannot hold D, so when they deposit, they are taking up a short position of their asset versus {everything else} and are notionally long the volatility of that pool. Because of this, it makes sense to only pay the LP in USDC, and separate the principle from the yield.&#x20;
+{% endhint %}
+
+<img src="../.gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
+
 ### Global Pool
 
 There is a mechanism to become a “Global LP” which simply involves streaming from any listed pool into a Global Pool. The Global Pool participants earn half of Global Income (from all pools) and experience an Impermanent Loss/Gain which is correlated to the performance of the system as a whole.&#x20;
